@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'customers/edit'
   get 'products/index'
   get 'products/new'
-  get 'products/show'
+  get 'products/update'
   get 'products/edit'
   get 'homes/top'
   get 'homes/about'
