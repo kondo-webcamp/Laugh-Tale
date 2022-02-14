@@ -9,16 +9,16 @@ class ProductsController < ApplicationController
   def create
      @item = Item.new(params_path)
      @item.save
-     redirect_to root_path
+     redirect_to product_path(@item.id)
 
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
   end
-
   private
 
   def params_path
