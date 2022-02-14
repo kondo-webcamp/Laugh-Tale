@@ -1,2 +1,14 @@
 <h1>商品新規登録3</h1>
 <p>Find me in app/views/products/new.html.erb</p>
+
+<%= form_with model: @item,url: products_path,method: :post, local: true do |f| %>
+  <div class="field">
+    <%= f.label :商品名 %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :商品説明 %>
+    <%= f.text_field :introduction %>
+  </div>
+  <%= f.submit '新規登録' %>
+  <% end %>
