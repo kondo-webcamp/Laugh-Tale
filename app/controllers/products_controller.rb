@@ -3,9 +3,7 @@ class ProductsController < ApplicationController
     @items = Item.all
   end
 
-  def c_index
-    @items = Item.all
-  end
+  
 
   def new
     @item = Item.new
