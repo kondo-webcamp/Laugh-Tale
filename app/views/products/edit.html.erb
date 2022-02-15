@@ -1,6 +1,6 @@
 <h1>商品編集5</h1>
 
-<%= form_with model: @product, method: :patch, local: true do |f| %>
+<%= form_with model: @product,url: product_path(@product.id), method: :patch, local: true do |f| %>
 
 商品名<%= f.text_field :name %>
 商品説明<%= f.text_field :introduction %>
