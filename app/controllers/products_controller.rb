@@ -23,6 +23,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
+
+    @product = Item.find(params[:id])
+
     @customer=Customer.find(params[:id])
   end
   def update
