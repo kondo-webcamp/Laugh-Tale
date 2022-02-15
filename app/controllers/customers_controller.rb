@@ -19,10 +19,10 @@ class CustomersController < ApplicationController
     @customer.update
 
   end
-  
+
   def update
     @customer.find(params[:id])
     @customer.update(params_path)
   end
-  
+
 end
