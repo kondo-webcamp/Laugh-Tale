@@ -1,10 +1,13 @@
 <h1>会員情報編集9(管理者側)</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
 
-<% fom_with model: @customer,url: ,method: :post local: true do |f|%>
+
+<%= form_with model: @customer,url: customer_path(@customer.id),method: :patch, local: true do |f|%>
 
    <%=@customer.id%>
-   <%=f.text_field :last_name%><br>
+   <div>
+      <%= f.text_field :last_name %>
+   </div>
+
    <%=f.text_field :first_name%><br>
    <%=f.text_field :last_name_kana%><br>
    <%=f.text_field :first_name_kana%><br>
