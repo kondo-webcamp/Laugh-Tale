@@ -9,12 +9,21 @@
       <th>ステータス</th>
     </tr>
   </thead>
+
+
   <tbody>
-    <td><%= @customers.id %></td>
-    <td><%= @customers.last_name %></td>
-    <td><%= @customers.email %></td>
+    <% @customers.each do |customer| %>
+    <td><%= customer.id %></td>
+    <td><%= customer.last_name %><%= customer.first_name %></td>
+    <td><%= customer.email %></td>
     <!--<td><%#= @customers.status %></td>-->
+    <% end %>
   </tbody>
+
   
 </table>
+
+
+
+
 
