@@ -1,2 +1,22 @@
 <h1>会員一覧8(管理者側)</h1>
-<p>Find me in app/views/customers/index.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+    <td><%= customer.id %></td>
+    <td><%= customer.last_name %><%= customer.first_name %></td>
+    <td><%= customer.email %></td>
+    <!--<td><%#= @customers.status %></td>-->
+    <% end %>
+  </tbody>
+
+</table>
