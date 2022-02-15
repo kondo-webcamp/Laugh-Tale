@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
   def index
+    @items = Item.all
+  end
+
+  def c_index
+    @items = Item.all
   end
 
   def new
