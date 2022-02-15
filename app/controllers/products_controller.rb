@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
     @items = Item.all
   end
 
-  
+
 
   def new
     @item = Item.new
@@ -21,18 +21,17 @@ class ProductsController < ApplicationController
   end
 
   def edit
-
     @product = Item.find(params[:id])
+  end
 
-    @customer=Customer.find(params[:id])
-  end
   def update
-    @customer.find(params[:id])
-    @customer.update(params_path)
+    @product = Item.find(params[:id])
+    @product.update(params_path)
   end
+
   private
 
   def params_path
-     params.require(:item).permit(:name, :introduction)
+     params.require(:item).permit(:name, :introduction, :price)
   end
 end
