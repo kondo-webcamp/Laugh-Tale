@@ -15,6 +15,6 @@ resources :orders
 resources :customers
 resources :products
 resources :products_customers
-
+resources :cart_items
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
