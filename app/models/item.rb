@@ -3,9 +3,9 @@ class Item < ApplicationRecord
   has_many :cart_items
   has_many :order_details
   has_many :genres
-  
+
   has_one_attached :image
-  
+
    def get_image
     if image.attached?
       image
@@ -14,3 +14,5 @@ class Item < ApplicationRecord
     end
    end
 end
+
+
