@@ -12,3 +12,8 @@
     <td><%= @item.price %></td>
 
   </tr>
+  <%= form_with model:@cart_item, url:cart_items_path, method: :post,local:true do |f| %>
+    <%#= f.hidden_field :customer_id,current_customer.id %>
+    <%= f.select :amount, *[1..100] %>
+    <%= f.submit 'カートに入れる' %>
+  <% end %>
