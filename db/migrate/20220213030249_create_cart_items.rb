@@ -1,10 +1,9 @@
 class CreateCartItems < ActiveRecord::Migration[6.1]
   def change
     create_table :cart_items do |t|
-      t.integer :item_id
-      t.integer :customer_id
-      t.integer :amount
-
+      t.integer :quantity, default: 0
+      t.references :item
+      t.references :customer
       t.timestamps
     end
   end

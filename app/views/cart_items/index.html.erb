@@ -19,12 +19,12 @@
       <td>
         <%= form_with model:@cart_item, url:cart_items_path, method: :patch,local:true do |f| %>
 
-          <%= f.select :amount, *[1..100] %>
+          <%= f.select :quantiy, *[1..100] %>
           <%= f.submit '変更' %>
         <% end %>
       </td>
       <td><%= cart_item.item.price %></td>
-      <td><%= link_to "削除する",カートの詳細(カート指定の引数), method: :delete, "data-confirm" => "削除しますか？" %><td>
+      <td><%#= link_to "削除する",カートの詳細(カート指定の引数), method: :delete, "data-confirm" => "削除しますか？" %><td>
     <% end %>
   </tbody>
 </table>

@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 }
 root to: 'homes#top'
   get 'homes/about'
+
   patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+
+  
+
 resources :addresses
 resources :orders
 resources :customers
