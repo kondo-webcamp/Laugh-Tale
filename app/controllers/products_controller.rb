@@ -1,17 +1,16 @@
 class ProductsController < ApplicationController
+  def index
+    @items = Item.all
+  end
 
   def new
     @item = Item.new
   end
 
   def create
-    @item = Item.new(params_path)
-    @item.save
-    redirect_to product_path(@item.id)
-  end
-
-  def index
-    @items = Item.all
+     @item = Item.new(params_path)
+     @item.save
+     redirect_to product_path(@item.id)
   end
 
   def show
