@@ -13,10 +13,11 @@ Rails.application.routes.draw do
 }
 root to: 'homes#top'
   get 'homes/about'
-  get '/my_cart' => 'carts#my_cart'
-  post '/add_item' => 'carts#add_item'
-  post '/update_item' => 'carts#update_item'
-  delete '/delete_item' => 'carts#delete_item'
+
+  patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+
+  
+
 resources :addresses
 resources :orders
 resources :customers
