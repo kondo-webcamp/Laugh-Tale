@@ -1,3 +1,47 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.customer-signup{
+  width: 100%;
+}
+
+.customer-title{
+  background-color: rgba(0,0,0,0.1);
+  display: inline-block;
+  margin-bottom: 40px;
+  padding: 8px;
+}
+
+.customer-signup2{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.mypage{
+  width: 100%;
+}
+
+.mypage-logo{
+  margin: 30px;
+}
+
+.mypage1{
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 36px;
+}
+
+table,th,td{
+  border: 1px solid black;
+  margin: 30px 0;
+}
+
+th{
+  background-color: rgba(0,0,0,0.1);
+  width: 30%;
+}
+
+td{
+  width: 70%;
+}

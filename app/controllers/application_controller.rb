@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
     root_path
   end
   def after_sign_up_path_for(resource)
+    _path
+  end
+  def after_sign_out_path_for(resource)
     root_path
   end
   protect_from_forgery with: :exception
