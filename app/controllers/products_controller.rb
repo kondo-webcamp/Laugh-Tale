@@ -3,8 +3,6 @@ class ProductsController < ApplicationController
     @items = Item.all
   end
 
-
-
   def new
     @item = Item.new
   end
@@ -13,7 +11,6 @@ class ProductsController < ApplicationController
      @item = Item.new(params_path)
      @item.save
      redirect_to product_path(@item.id)
-
   end
 
   def show

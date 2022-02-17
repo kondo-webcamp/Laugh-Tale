@@ -1,26 +1,34 @@
-<h2>ユーザー側ログイン4</h2>
+<div class="customer-login">
+    <h3 class="customer-login-title">ログイン</h3>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="customer-login1">
+      <p class="customer-login2">会員の方はこちら</p>
+      <table>
+        <tr>
+          <td><%= f.label :'メールアドレス' %>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :'パスワード' %>
+          <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "ログイン" %></td>
+        </tr>
+      </table>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <div>
+        <p class="customer-login2">会員登録がお済でない方</p>
+        <%= render "public/shared/links" %>から新規登録を行ってください</p>
+      </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
     </div>
-  <% end %>
+   <% end %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
 
-<%= render "public/shared/links" %>
+
+
+
