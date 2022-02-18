@@ -13,7 +13,7 @@
 
   </tr>
   <%= form_with model:@cart_item, url:cart_items_path, method: :post,local:true do |f| %>
-    <%#= f.hidden_field :customer_id,current_customer.id %>
-    <%= f.select :amount, *[1..100] %>
+    <%= f.hidden_field :item_id, value: @item.id %>
+    <%= f.select :quantity, *[1..100] %>
     <%= f.submit 'カートに入れる' %>
   <% end %>
