@@ -11,20 +11,22 @@
   </thead>
   <tbody>
     <% @cart_items.each do |cart_item| %>
-      <td>
-        <%#= cart_item.item.image %>
-        <%= cart_item.item.name %>
-      </td>
-      <td><%= cart_item.item.price %></td>
-      <td>
-        <%= form_with model:@cart_item, url:cart_items_path, method: :patch,local:true do |f| %>
+      <tr class = "body">
+        <td>
+          <%#= cart_item.item.image %>
+          <%= cart_item.item.name %>
+        </td>
+        <td><%= cart_item.item.price %></td>
+        <td>
+          <%= form_with model:@cart_item, url:cart_items_path, method: :patch,local:true do |f| %>
 
-          <%= f.select :quantiy, *[1..100] %>
-          <%= f.submit '変更' %>
-        <% end %>
-      </td>
-      <td><%= cart_item.item.price %></td>
-      <td><%#= link_to "削除する",カートの詳細(カート指定の引数), method: :delete, "data-confirm" => "削除しますか？" %><td>
+            <%= f.select :quantiy, *[1..100] %>
+            <%= f.submit '変更' %>
+          <% end %>
+        </td>
+        <td><%= cart_item.item.price %></td>
+        <td><%= link_to "削除する",cart_items_path(cart_item.id), method: :delete, "data-confirm" => "削除しますか？" %><td>
+      </tr>
     <% end %>
   </tbody>
 </table>
