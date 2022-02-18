@@ -10,6 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "homes" %>
     <%= stylesheet_link_tag "customers" %>
+    <%= stylesheet_link_tag "admin_customer" %>
     <%= stylesheet_link_tag "customer_login" %>
   </head>
 
@@ -36,6 +37,7 @@
     </div>
   </nav>
 </header>
+    <%= notice %>
     <%= yield %>
   </body>
 </html>

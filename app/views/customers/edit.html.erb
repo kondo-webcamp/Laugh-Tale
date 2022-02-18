@@ -1,0 +1,55 @@
+<div class="mypage edit">
+  <div class="mypage1">
+    <h3 class="customer-title">会員情報編集</h3>
+       <%= form_with model: @customer,url: customer_path(@customer.id),method: :patch, local: true do |f|%>
+       <table>
+          <tr>
+            <td>氏名</td>
+            <td><%= f.text_field :last_name %></td>
+            <td><%= f.text_field :first_name %></td>
+          </tr>
+          <tr>
+            <td>フリガナ</td>
+            <td><%= f.text_field :last_name_kana %></td>
+            <td><%= f.text_field :first_name_kana %></td>
+          </tr>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= f.text_field :postal_code %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= f.text_field :telephone_number %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= f.text_field :email %></td>
+          </tr>
+       </table>
+       <%= f.submit'編集内容を保存' %>
+
+
+       <% end %>
+    </div>
+</div>
+
+ <button class="customer-modal0 btn btn-success">退会する</button>
+
+       <div class="customer-modal">
+         <div class="customer-modal1">
+            <h4>本当に退会しますか？</h4>
+            <p>
+              退会すると会員登録情報や<br/>
+              これまでの購入履歴が閲覧できなくなります。<br/>
+              退会する場合は、「退会する」をクリックしてください。
+            </p>
+            <div class="modal-button">
+              <button class="customer-modal2 btn btn-primary">退会しない</button>
+              <div class="modal-button1"><%= link_to '退会する', withdrawal_path, method: :patch,class: 'btn btn-danger', data: { confilm: '本当に退会しますか？' } %></div>
+            </div>
+         </div>
+       </div>
