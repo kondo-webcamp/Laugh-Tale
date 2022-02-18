@@ -31,7 +31,25 @@
           </tr>
        </table>
        <%= f.submit'編集内容を保存' %>
-       <%= link_to '退会する', withdrawal_path, method: :patch, data: { confilm: '本当に退会しますか？' } %>
+
+
        <% end %>
     </div>
 </div>
+
+ <button class="customer-modal0 btn btn-success">退会する</button>
+
+       <div class="customer-modal">
+         <div class="customer-modal1">
+            <h4>本当に退会しますか？</h4>
+            <p>
+              退会すると会員登録情報や<br/>
+              これまでの購入履歴が閲覧できなくなります。<br/>
+              退会する場合は、「退会する」をクリックしてください。
+            </p>
+            <div class="modal-button">
+              <button class="customer-modal2 btn btn-primary">退会しない</button>
+              <div class="modal-button1"><%= link_to '退会する', withdrawal_path, method: :patch,class: 'btn btn-danger', data: { confilm: '本当に退会しますか？' } %></div>
+            </div>
+         </div>
+       </div>
