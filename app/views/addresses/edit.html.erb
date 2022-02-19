@@ -1,2 +1,19 @@
-<h1>配送先編集15</h1>
-<p>Find me in app/views/addresses/edit.html.erb</p>
+<h1>配送先編集</h1>
+
+<%= form_with model: @address, method: :patch, local: true do |f| %>
+<table>
+  <tr>
+    <td><%= f.label :'郵便番号(ハイフンなし)' %></td>
+    <td><%= f.text_field :postal_code %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :'住所' %></td>
+    <td><%= f.text_field :address %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :'宛名' %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+</table>
+<%= f.submit '変更内容を保存する', class: "btn btn-success" %>
+<% end %>
