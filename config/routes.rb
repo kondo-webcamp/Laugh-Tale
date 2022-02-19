@@ -16,7 +16,7 @@ root to: 'homes#top'
 
   patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 
-  
+
 
 resources :addresses
 resources :orders

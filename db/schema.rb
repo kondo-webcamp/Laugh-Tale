@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_17_014303) do
+ActiveRecord::Schema.define(version: 2022_02_16_014310) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,11 +62,13 @@ ActiveRecord::Schema.define(version: 2022_02_17_014303) do
   end
 
   create_table "cart_items", force: :cascade do |t|
+    t.integer "quantity", default: 0
     t.integer "item_id"
     t.integer "customer_id"
-    t.integer "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_cart_items_on_customer_id"
+    t.index ["item_id"], name: "index_cart_items_on_item_id"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -91,7 +93,7 @@ ActiveRecord::Schema.define(version: 2022_02_17_014303) do
     t.string "postal_code"
     t.string "address"
     t.string "telephone_number"
-    t.boolean "is_deleted", default: false
+    t.boolean "is_deleted"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true

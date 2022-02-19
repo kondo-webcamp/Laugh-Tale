@@ -6,7 +6,6 @@ class CartItemsController < ApplicationController
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    @cart_item = CartItem.find_by()
     @cart_item.save
     redirect_to cart_items_path
   end
@@ -17,8 +16,17 @@ class CartItemsController < ApplicationController
 
   def show
   end
+  def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_to cart_items_path
+  end
 
   def destroy
+    @cart_items = CartItem.all
+    @cart_item = CartItem.find(params[:item_id])
+    @cart_item.destroy
+    render :index
   end
 
   def ending
@@ -26,7 +34,7 @@ class CartItemsController < ApplicationController
 
   private
   def cart_item_params
-      params.require(:cart_item).permit(:customer_id, :item_id, :quantity)
+    params.require(:cart_item).permit(:customer_id, :item_id, :quantity)
   end
 
 end
