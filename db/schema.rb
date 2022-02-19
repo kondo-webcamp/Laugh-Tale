@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2022_02_16_014310) do
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_addresses_on_customer_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -77,8 +76,8 @@ ActiveRecord::Schema.define(version: 2022_02_16_014310) do
     t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_cart_items_on_customer_id"
-    t.index ["item_id"], name: "index_cart_items_on_item_id"
+    t.index ["carts_id"], name: "index_carts_on_carts_id"
+    t.index ["customer_id"], name: "index_carts_on_customer_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -143,4 +142,6 @@ ActiveRecord::Schema.define(version: 2022_02_16_014310) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "carts", "carts", column: "carts_id"
+  add_foreign_key "carts", "customers"
 end
