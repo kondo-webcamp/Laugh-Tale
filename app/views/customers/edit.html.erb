@@ -1,6 +1,6 @@
 <div class="mypage edit">
   <div class="mypage1">
-    <h3 class="customer-title">会員情報編集</h3>
+    <div class="title-logo"><h3 class="title">会員情報編集</h3></div>
        <%= form_with model: @customer,url: customer_path(@customer.id),method: :patch, local: true do |f|%>
        <table>
           <tr>
@@ -30,14 +30,14 @@
             <td><%= f.text_field :email %></td>
           </tr>
        </table>
-       <%= f.submit'編集内容を保存' %>
+       <%= f.submit'編集内容を保存',class: 'btn btn-success' %>
 
 
        <% end %>
     </div>
 </div>
 
- <button class="customer-modal0 btn btn-success">退会する</button>
+ <button class="customer-modal0 btn btn-danger">退会する</button>
 
        <div class="customer-modal">
          <div class="customer-modal1">
