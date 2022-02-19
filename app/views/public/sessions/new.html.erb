@@ -1,27 +1,24 @@
-<div class="customer-login">
+<div>
     <div class="title-logo"><h3 class="title">ログイン</h3></div>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="customer-login1">
-      <p class="customer-login2">会員の方はこちら</p>
+    <div class="customer-login">
+      <p class="customer-logo1">会員の方はこちら</p>
       <table>
         <tr>
-          <td><%= f.label :'メールアドレス' %>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          <td class="customer-label"><%= f.label :'メールアドレス' %></td>
+          <td class="customer-field"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
         </tr>
         <tr>
-          <td><%= f.label :'パスワード' %>
-          <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><%= f.submit "ログイン" %></td>
+          <td class="customer-label"><%= f.label :'パスワード' %>
+          <td class="customer-field"><%= f.password_field :password, autocomplete: "current-password" %></td>
+          <td class="customer-label"><%= f.submit "ログイン", class: "btn btn-outline-dark" %></td>
         </tr>
       </table>
 
-      <div>
-        <p class="customer-login2">会員登録がお済でない方</p>
-        <%= render "public/shared/links" %>から新規登録を行ってください</p>
+      <div class="customer-logo0">
+        <p class="customer-logo1">会員登録がお済でない方</p>
+        <p class="customer-logo2"><%= render "public/shared/links" %>から新規登録を行ってください。</p>
       </div>
 
     </div>
