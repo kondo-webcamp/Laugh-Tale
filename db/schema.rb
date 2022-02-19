@@ -72,6 +72,15 @@ ActiveRecord::Schema.define(version: 2022_02_16_014310) do
     t.index ["item_id"], name: "index_cart_items_on_item_id"
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.integer "carts_id"
+    t.integer "customer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_cart_items_on_customer_id"
+    t.index ["item_id"], name: "index_cart_items_on_item_id"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -85,7 +94,7 @@ ActiveRecord::Schema.define(version: 2022_02_16_014310) do
     t.string "postal_code"
     t.string "address"
     t.string "telephone_number"
-    t.boolean "is_deleted", default: false
+    t.boolean "is_deleted"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
