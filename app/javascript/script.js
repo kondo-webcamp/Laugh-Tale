@@ -6,4 +6,5 @@ $(function(){
   $('.customer-modal2').click(function(){
     $('.customer-modal').fadeOut();
   });
+
 });

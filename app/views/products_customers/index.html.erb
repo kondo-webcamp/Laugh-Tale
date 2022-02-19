@@ -1,4 +1,4 @@
-<h1>商品一覧(全<%= @items.count %>件)</h1>
+<div class="title-logo"><h3 class="title">商品一覧(全<%= @items.count %>件)</h3></div>
 <% @items.each do |item| %>
     <%= item.name %>
     <%= item.price %>
