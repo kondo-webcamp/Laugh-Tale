@@ -26,7 +26,7 @@
         </td>
         <td><%= (cart_item.item.price * 1.1).floor * cart_item.quantity %></td>
         <% @total +=  (cart_item.item.price * 1.1).floor * cart_item.quantity %>
-        <td><%= link_to "削除する",cart_item_path(cart_item.item_id), method: :delete,local:true, "data-confirm" => "削除しますか？" %><td>
+        <td><%= link_to "削除する",cart_item_path(cart_item.id), method: :delete,local:true, "data-confirm" => "削除しますか？" %><td>
       </tr>
     <% end %>
   </tbody>

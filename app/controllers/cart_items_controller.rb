@@ -24,7 +24,7 @@ class CartItemsController < ApplicationController
 
   def destroy
     @cart_items = CartItem.all
-    @cart_item = CartItem.find(params[:item_id])
+    @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
     render :index
   end
