@@ -21,7 +21,7 @@
      </div>
 
      <div class="col-lg-4">
-        <p><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %></p>
+        <p><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", required: true %></p>
         <p><%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %></p>
         <p><%= f.email_field :email, autocomplete: "email" %></p>
         <p><%= f.text_field :postal_code, autocomplete: "postal_code" %></p>
@@ -37,7 +37,7 @@
      </div>
 
      <div class="col-lg-3">
-        <p><%= f.text_field :first_name,  autocomplete: "first_name" %></p>
+        <p><%= f.text_field :first_name,  autocomplete: "first_name", required: true %></p>
         <p><%= f.text_field :first_name_kana,  autocomplete: "first_name_kana" %></p>
         <p class="title-button"><%= f.submit "新規登録", class: "btn btn-outline-dark" %></p>
      </div>
