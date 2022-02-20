@@ -1,17 +1,23 @@
 <div class="title-logo"><h3 class="title">商品一覧</h3></div>
-
-
+<table>
+  <thead>
+    <tr class = "head">
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @items.each do |item|%>
-
-          <%= item.id%>
-
-          <%= item.name%>
-
-          <%= item.price %>
-
-          <%#= item.genre_id %>
-
-          <%#= item.is_active %>
-
+      <tr class = "body">
+        <td><%= item.id %></td>
+        <td><%= link_to item.name, product_path(item.id) %></td>
+        <td><%= item.price %></td>
+        <td><%#= item.genre_id %></td>
+        <td><%#= item.is_active %></td>
+      </tr>
     <% end %>
-
+  </tbody>
+</table>
