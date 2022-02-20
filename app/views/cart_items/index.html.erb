@@ -1,4 +1,5 @@
 <div class="title-logo"><h3 class="title">ショッピングカート</h3></div>
+<h3><%= link_to "カートを空にする", cart_items_path, method: :delete %></h3>
 <table>
   <thead>
     <tr class = "information">
@@ -31,6 +32,7 @@
     <% end %>
   </tbody>
 </table>
+<%= link_to "買い物を続ける",products_path %>
 <h1>合計金額:<%= @total %></h1>
-
+<%#= link_to "情報入力に進む", %>
 

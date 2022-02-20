@@ -24,6 +24,10 @@ resources :customers
 resources :admin_customer
 resources :products
 resources :products_customers
-resources :cart_items
+resources :cart_items do
+  collection do
+    delete '/' => 'cart_items#all_destroy'
+  end
+end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
