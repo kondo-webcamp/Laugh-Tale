@@ -15,8 +15,7 @@ root to: 'homes#top'
   get 'homes/about'
 
   patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-
-
+  get 'orders/:id/check' =>'orders#check',as: 'check'
 
 resources :addresses
 resources :orders
