@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   get 'admin_customer/index'
   get 'admin_customer/show'
   get 'admin_customer/edit'
@@ -29,5 +27,6 @@ resources :cart_items do
     delete '/' => 'cart_items#all_destroy'
   end
 end
+resources :genres
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

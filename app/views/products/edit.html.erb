@@ -2,9 +2,12 @@
 
 <%= form_with model: @product,url: product_path(@product.id), method: :patch, local: true do |f| %>
 
+商品画像<%= f.file_field :image, accept: "image/*" %>
 商品名<%= f.text_field :name %>
 商品説明<%= f.text_field :introduction %>
+ジャンル<%= f.select :　,{ include_blank: '選択してください'} %>
 税抜価格<%= f.text_field :price %>
+
 <%= f.submit '変更を保存' %>
 
 <% end %>
