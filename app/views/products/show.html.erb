@@ -1,19 +1,43 @@
+<div class="container">
+  <div class="row item-show-top">
+
+    <div class="col-2">
+      <div class="genre">
+
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="item-image">
+
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="item-show">
+        <div class="row">
+          <h1><strong><%= @item.name %></strong></h1>
+        </div>
+
+        <div class="row item-show-top1">
+          <h3><%= @item.introduction %></h3>
+        </div>
+
+        <div class="row item-show-top1">
+          <h2><strong>￥<%= @item.price %></strong></h2><div class="item-show-top2">(税込)</div>
+        </div>
+
+        <div class="row item-show-top">
+          <%= form_with model:@cart_item, url:cart_items_path, method: :post,local:true do |f| %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.select :quantity, *[1..10] %>
+          <div class="item-show-top3"><%= f.submit 'カートに入れる', class: "btn btn-outline-dark" %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
 
-<div class="title-logo"><h3 class="title">商品詳細</h3></div>
-  <tr>
-    <td>商品名</td>
-    <td><%= @item.name %></td>
+  </div>
+</div>
 
-    <td>商品説明</td>
-    <td><%= @item.introduction %></td>
-
-    <td>税抜価格</td>
-    <td><%= @item.price %></td>
-
-  </tr>
-  <%= form_with model:@cart_item, url:cart_items_path, method: :post,local:true do |f| %>
-    <%= f.hidden_field :item_id, value: @item.id %>
-    <%= f.select :quantity, *[1..10] %>
-    <%= f.submit 'カートに入れる' %>
-  <% end %>

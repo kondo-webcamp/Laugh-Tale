@@ -1,3 +1,29 @@
 // Place all the styles related to the cart-items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+ .table, .tr, .th, .td{
+   margin: 20px 40px;
+   padding: 8px 60px;
+ }
+
+ .cart_item-button0{
+   margin: 30px  0  0 300px;
+ }
+
+.cart_item-button{
+  margin-left: 800px;
+}
+
+.cart_item-button1{
+  margin: 40px  0  0 150px;
+}
+
+
+.cart_item-total{
+  letter-spacing: 8px;
+  display: inline;
+  margin: 20px 0 0 300px;
+  padding: 20px;
+  background-color: #FFCCCC;
+  border-radius: 5px;
+}

@@ -1,21 +1,25 @@
 
-<h2>会員一覧</h2>
+<div class="title-logo"><h3 class="title">会員一覧</h3></div>
 
 <table>
-  <tr>
-    <th>会員ID</th>
-    <th>氏名</th>
-    <th>メールアドレス</th>
-    <th>ステータス</th>
-  </tr>
+  <thead>
+    <tr class = "head">
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
 
-  <tr>
-    <% @customers.each do |customer| %>
-      <td><%= customer.id %></td>
-      <td><%= customer.last_name %><%= customer.first_name %></td>
-      <td><%= customer.email %></td>
-      <%#= customer.status %></td>
-    <% end %>
-  </tr>
+  <tbody>
+      <% @customers.each do |customer| %>
+        <tr class = "body">
+          <td><%= customer.id %></td>
+          <td><%= link_to customer.full_name, customer_path(customer.id) %></td>
+          <td><%= customer.email %></td>
+          <td><%#= customer.status %></td>
+        </tr>
+      <% end %>
+  </tbody>
 </table>
-<div class="title-logo"><h3 class="title">会員一覧</h3></div>
+
