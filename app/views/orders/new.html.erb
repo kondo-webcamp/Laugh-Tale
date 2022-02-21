@@ -12,36 +12,33 @@
       <%= f.label :payment_method, "銀行振込" %>
   </div>
 
-  <div class="order-address">
-    <h5 class="order-title">お届け先</h5>
+      <div class="order-address">
+         <h5 class="order-title">お届け先</h5>
+            <div class="order2">
+              <div>
+                  <%= f.radio_button :address,"→のやついれて" %><%#=current_customer.address%>
+        　　        <strong><%= f.label :address,"ご自身の住所" %></strong>
+              </div>
 
-    <div class="order1">
-      <div class="order-address1">
-        <%#= f.radio_button :address,"<%=current_customer.address%>
-　　    <strong><%= f.label :address,"ご自身の住所" %></strong>
-      </div>
+              <div class="order-address1">
+                 <%= f.radio_button :address,"current_customer.address_id"%>
+                 <strong><%= f.label :'登録済住所から選択' %></strong>
+                 <%= f.select :address, options_from_collection_for_select(Address.all, :id, :address_display) %>
+              </div>
 
-      <div class="order-address1">
-         <%= f.radio_button :address,"current_customer.address_id"%>
-         <strong><%= f.label :登録済住所から選択 %></strong>
-         <%= f.select :address, options_from_collection_for_select(Address.all, :id, :address_display) %>
-      </div>
-
-      <div class="order-address1">
-        <%= f.radio_button :address, "address_id" %>
-        <strong><%= f.label :address, "新しいお届け先" %></strong>
-         郵便番号（ハイフンなし） <%= f.text_field :postal_code%>
-         住所 <%= f.text_field :address %>
-         宛名 <%= f.text_field :name %>
-
-      </div>
-
-
-    </div>
-  </div>
-
+              <div>
+                <%= f.radio_button :address, "address_id" %>
+                <strong><%= f.label :address, "新しいお届け先" %></strong>
+                <div class="change-address">
+                  <p><%= f.label :'郵便番号(ハイフンなし)' %><%= f.text_field :postal_code %></p>
+                  <p><%= f.label :'住所' %><%= f.text_field :address %></p>
+                  <p><%= f.label :'宛名' %><%= f.text_field :name %></p>
+                </div>
+                </div>
+            </div>
+       </div>
+       <div class="order-button">
+         <%= f.submit '確認画面へ進む', class: "btn btn-outline-dark" %>
+       </div>
 </div>
-
-    <%= f.submit '確認画面へ進む', class: "btn btn-outline-dark" %>
-
   <% end %>
