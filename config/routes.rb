@@ -17,7 +17,12 @@ root to: 'homes#top'
   patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 
 
+
 resources :genres
+
+  get 'orders/:id/check' =>'orders#check',as: 'check'
+
+
 resources :addresses
 resources :orders
 resources :customers
