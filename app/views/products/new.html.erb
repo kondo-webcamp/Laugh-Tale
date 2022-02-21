@@ -12,7 +12,7 @@
      </div>
 
      <div class="col-7">
-       <p><%= f.file_field :image_id, placeholder: "プロフィール画像", accept: "image/*" %></p>
+       <p><%= f.file_field :image, placeholder: "プロフィール画像", accept: "image/*" %></p>
        <p><%= f.text_field :name %></p>
        <p><%= f.text_field :introduction %></p>
        <p><%= f.select :genre_id, ['ケーキ', '洋菓子', 'アイス'], {include_blank: '--選択ボックス--'} %></p>
