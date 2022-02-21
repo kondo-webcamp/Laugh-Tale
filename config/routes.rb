@@ -18,11 +18,11 @@ root to: 'homes#top'
 
 
 
-resources :genres
+
 
   get 'orders/:id/check' =>'orders#check',as: 'check'
 
-
+resources :genres
 resources :addresses
 resources :orders
 resources :customers
