@@ -9,7 +9,7 @@
     <%= f.radio_button :payment_method, "transfer" %>
     <%= f.label :payment_method, "銀行振込" %>
   <h3>お届け先</h3><br>
-　　<%#= f.radio_button :address,"<%=current_customer.address%>"%><br>
+　　<%#= f.radio_button :address,"<%=current_customer.address%>
 　　<%= f.label :address,"current_customer.address"%><br>
 
     <%= f.radio_button :address,"current_customer.address_id"%><br>
