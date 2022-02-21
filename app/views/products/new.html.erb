@@ -8,7 +8,7 @@
         <p><%= f.label :商品説明 %></p>
         <p><%= f.label :ジャンル %></p>
         <p><%= f.label :税抜価格 %></p>
-        <p><%= f.label :販売ステータス %></p>
+        <p><%#= f.label :販売ステータス %></p>
      </div>
 
      <div class="col-7">
@@ -18,10 +18,10 @@
        <p><%= f.select :genre_id, ['ケーキ', '洋菓子', 'アイス'], {include_blank: '--選択ボックス--'} %></p>
        <p><%= f.text_field :price %>円</p>
        <p>
-          <%= f.radio_button :is_active, :draft %>
-          <%= f.label :is_active_draft, '販売中' %>
-          <%= f.radio_button :is_active, :on_sale %>
-          <%= f.label :is_active_on_sale, '販売停止中' %>
+          <%#= f.radio_button :is_active, :draft %>
+          <%#= f.label :is_active_draft, '販売中' %>
+          <%#= f.radio_button :is_active, :on_sale %>
+          <%#= f.label :is_active_on_sale, '販売停止中' %>
        </p>
      </div>
   </div>

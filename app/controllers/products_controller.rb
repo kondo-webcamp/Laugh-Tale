@@ -33,4 +33,4 @@ class ProductsController < ApplicationController
 
     params.require(:item).permit(:name, :introduction, :price,:image)
   end
-  
+end
