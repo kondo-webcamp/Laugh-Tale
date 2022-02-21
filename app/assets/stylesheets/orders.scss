@@ -1,3 +1,23 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.order-title{
+  border: 1px solid #FF5192;
+  display: inline;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 12px;
+}
+
+.order{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.order1{
+  width: 80%;
+}
+
+.order-address{
+  margin-top: 50px;
+}

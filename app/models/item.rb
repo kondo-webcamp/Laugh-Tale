@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   has_many :cart_items
   has_many :order_details
-  belongs_to :genres
+  has_many :genres
 
   has_one_attached :image
 
