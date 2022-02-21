@@ -16,6 +16,11 @@ root to: 'homes#top'
 
 
 
+resources :genres
+
+  get 'orders/:id/check' =>'orders#check',as: 'check'
+
+
 resources :addresses
 resources :orders
 resources :customers
@@ -29,4 +34,5 @@ resources :cart_items do
 end
 resources :genres
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
