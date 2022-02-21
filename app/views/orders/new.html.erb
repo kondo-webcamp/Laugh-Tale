@@ -1,26 +1,47 @@
-<h1>注文情報入力</h1>
+<div class="title-logo"><h3 class="title">注文情報入力</h3></div>
 
 
 <%= form_with model:@order,url:orders_path,method: :post,local: true do |f| %>
-  <h3>支払い方法</h3>
-    <%= f.radio_button :payment_method, "credit_card" %>
-    <%= f.label :payment_method, "クレジットカード" %>
+<div class="order">
+  <div>
+    <h5 class="order-title">支払い方法</h5>
+      <%= f.radio_button :payment_method, "credit_card" %>
+      <%= f.label :payment_method, "クレジットカード" %>
 
-    <%= f.radio_button :payment_method, "transfer" %>
-    <%= f.label :payment_method, "銀行振込" %>
-  <h3>お届け先</h3><br>
-　　<%#= f.radio_button :address,"<%=current_customer.address%>
-　　<%= f.label :address,"current_customer.address"%><br>
+      <%= f.radio_button :payment_method, "transfer" %>
+      <%= f.label :payment_method, "銀行振込" %>
+  </div>
 
-    <%= f.radio_button :address,"current_customer.address_id"%><br>
-    <%= f.select :address, options_from_collection_for_select(Address.all, :id, :address_display) %><br>
+  <div class="order-address">
+    <h5 class="order-title">お届け先</h5>
 
-    <%= f.radio_button :address, "address_id" %><br>
-       郵便番号（ハイフンなし） <%= f.text_field :postal_code%><br>
-       住所 <%= f.text_field :address%><br>
-       宛名 <%= f.text_field :name%><br>
-    <%= f.label :address, "新しいお届け先" %><br>
+    <div class="order1">
+      <div class="order-address1">
+        <%#= f.radio_button :address,"<%=current_customer.address%>
+　　    <strong><%= f.label :address,"ご自身の住所" %></strong>
+      </div>
 
-    <%= f.submit '変更内容を保存する', class: "btn btn-success" %>
+      <div class="order-address1">
+         <%= f.radio_button :address,"current_customer.address_id"%>
+         <strong><%= f.label :登録済住所から選択 %></strong>
+         <%= f.select :address, options_from_collection_for_select(Address.all, :id, :address_display) %>
+      </div>
+
+      <div class="order-address1">
+        <%= f.radio_button :address, "address_id" %>
+        <strong><%= f.label :address, "新しいお届け先" %></strong>
+         郵便番号（ハイフンなし） <%= f.text_field :postal_code%>
+         住所 <%= f.text_field :address %>
+         宛名 <%= f.text_field :name %>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+    <%= f.submit '確認画面へ進む', class: "btn btn-outline-dark" %>
 
   <% end %>
