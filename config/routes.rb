@@ -15,7 +15,13 @@ root to: 'homes#top'
   get 'homes/about'
 
   patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+
+
+
+resources :genres
+
   get 'orders/:id/check' =>'orders#check',as: 'check'
+
 
 resources :addresses
 resources :orders
@@ -29,4 +35,5 @@ resources :cart_items do
   end
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
