@@ -17,7 +17,7 @@ root to: 'homes#top'
   patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 
 
-
+resources :genres
 resources :addresses
 resources :orders
 resources :customers
@@ -30,4 +30,5 @@ resources :cart_items do
   end
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
