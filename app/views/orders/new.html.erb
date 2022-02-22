@@ -16,13 +16,15 @@
          <h5 class="order-title">お届け先</h5>
             <div class="order2">
               <div>
-                  <%= f.radio_button :address,"→のやついれて" %><%#=current_customer.address%>
-        　　        <strong><%= f.label :address,"ご自身の住所" %></strong>
+                  <%= f.radio_button :address,current_customer.address %>
+        　　        <strong><%= f.label :address,"ご自身の住所" %></strong><br>
+                  〒 <%= current_customer.postal_code %><%= current_customer.address %><br>
+                  <%= current_customer.last_name %><%= current_customer.first_name %>
               </div>
 
               <div class="order-address1">
                  <%= f.radio_button :address,"current_customer.address_id"%>
-                 <strong><%= f.label :'登録済住所から選択' %></strong>
+                 <strong><%= f.label :'登録済住所から選択' %></strong><br>
                  <%= f.select :address, options_from_collection_for_select(Address.all, :id, :address_display) %>
               </div>
 

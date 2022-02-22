@@ -8,13 +8,16 @@ class OrdersController < ApplicationController
   end
 
   def new
+    
     @order = Order.new
+    
   end
 
   def create
     cart_items = current_customer.cart_items.all
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
+    
 
     if@order.save
 
@@ -42,6 +45,7 @@ class OrdersController < ApplicationController
 
         @order = Order.find(params[:id])
         @order_details = @order.order_details
+       
       end
     private
     def order_params
