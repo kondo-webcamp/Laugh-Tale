@@ -9,7 +9,9 @@ class OrdersController < ApplicationController
   end
 
   def new
+
     @order = Order.new
+
   end
 
   def create
@@ -17,12 +19,14 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
 
+
     if@order.save
 
       cart_items.each do |cart|
         @order_detail = OrderDetail.new
         @order_detail.order_id = @order.id
         @order_detail.item_id = cart.item_id
+
         @order_detail.price = cart.item.price
         @order_detail.quantity = cart.quantity
 
@@ -42,7 +46,9 @@ class OrdersController < ApplicationController
       def check
 
         @order = Order.find(params[:id])
+
         @order_details = @order.order_details
+
       end
     private
     def order_params
