@@ -77,7 +77,7 @@
             </p>
             <div class="modal-button">
               <button class="customer-modal2 btn btn-primary">退会しない</button>
-              <div class="modal-button1"><%= link_to '退会する', withdrawal_path, method: :patch,class: 'btn btn-danger', data: { confilm: '本当に退会しますか？' } %></div>
+              <div class="modal-button1"><%= button_to '退会する', withdrawal_path, method: :patch,class: 'btn btn-danger', data: { confilm: '本当に退会しますか？' } %></div>
             </div>
          </div>
        </div>
