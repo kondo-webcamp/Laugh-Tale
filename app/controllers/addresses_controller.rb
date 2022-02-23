@@ -1,7 +1,7 @@
 class AddressesController < ApplicationController
   def index
      @address = Address.new
-     @addresses = Address.all
+     @addresses = current_customer.addresses
   end
   def create
     @address = Address.new(params_path)

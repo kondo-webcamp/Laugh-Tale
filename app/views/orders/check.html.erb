@@ -28,11 +28,11 @@
         <%= order_detail.quantity %>
         </td>
         <td><%= (order_detail.item.price * 1.1).floor * order_detail.quantity %></td>
-        <% @total +=  (order_detail.item.price * 1.1).floor * order_detail.quantity %>
+        <%=@total +=  (order_detail.item.price * 1.1).floor * order_detail.quantity %>
        </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to "買い物を続ける",products_path %>
+
 <h1>合計金額:<%= @total %></h1>
-<%#= link_to "情報入力に進む", %>
+<%= link_to "情報入力に進む", %>
