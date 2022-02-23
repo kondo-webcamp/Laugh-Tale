@@ -1,19 +1,90 @@
-<div class="title-logo"><h3 class="title">会員情報編集9(管理者側)</h3></div>
-
-
+<div class="title-logo-admin"><h3 class="title-admin">会員情報編集</h3></div>
 <%= form_with model: @customer,url: customer_path(@customer.id),method: :patch, local: true do |f|%>
+  <div class="container">
+     <div class="row product-new-edit">
+       <div class="col-3">
+          <p>会員ID</p>
+       </div>
 
-   <%=@customer.id%>
-   <div>
-      <%= f.text_field :last_name %>
-   </div>
+       <div class="col-9">
+          <p><%= @customer.id %></p>
+       </div>
+     </div>
 
-   <%=f.text_field :first_name%><br>
-   <%=f.text_field :last_name_kana%><br>
-   <%=f.text_field :first_name_kana%><br>
-   <%=f.text_field :postal_code%><br>
-   <%=f.text_field :address%><br>
-   <%=f.text_field :telephone_number%><br>
+     <div class="row product-new-edit">
+       <div class="col-3">
+          <p>氏名</p>
+       </div>
 
-   <%=f.submit'Update'%>
+       <div class="col-9">
+          <p><%= f.text_field :last_name %><span class="customer-edit-field"><%=f.text_field :first_name %></span></p>
+       </div>
+     </div>
+
+     <div class="row product-new-edit">
+       <div class="col-3">
+          <p>フリガナ</p>
+       </div>
+
+       <div class="col-9">
+          <p><%=f.text_field :last_name_kana %><span class="customer-edit-field"><%=f.text_field :first_name_kana %></span></p>
+       </div>
+     </div>
+
+     <div class="row product-new-edit">
+       <div class="col-3">
+          <p>郵便番号</p>
+       </div>
+
+       <div class="col-9">
+          <p><%=f.text_field :postal_code %></p>
+       </div>
+     </div>
+
+     <div class="row product-new-edit">
+       <div class="col-3">
+          <p>住所</p>
+       </div>
+
+       <div class="col-9">
+          <p><%=f.text_field :address %></p>
+       </div>
+     </div>
+
+     <div class="row product-new-edit">
+       <div class="col-3">
+          <p>電話番号</p>
+       </div>
+
+       <div class="col-9">
+          <p><%=f.text_field :telephone_number%></p>
+       </div>
+     </div>
+
+     <div class="row product-new-edit">
+       <div class="col-3">
+          <p>メールアドレス</p>
+       </div>
+
+       <div class="col-9">
+          <p><%= f.text_field :email %></p>
+       </div>
+     </div>
+
+     <div class="row product-new-edit">
+       <div class="col-3">
+          <p>会員ステータス</p>
+       </div>
+
+       <div class="col-9">
+          <p><%= @customer.is_deleted %></p>
+       </div>
+     </div>
+
+     <div class="row product-new-edit1">
+       <div class="col-12">
+         <%=f.submit '変更を保存' ,class: "btn btn-outline-success customer-edit"%>
+       </div>
+     </div>
+　</div>
 <%end%>
