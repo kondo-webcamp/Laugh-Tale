@@ -1,43 +1,32 @@
-<div class="title-logo"><h3 class="title"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h3></div>
+<div class="title-logo-admin"><h3 class="title-admin"><%= @customer.last_name %><%= @customer.first_name %> 様 会員詳細</h3></div>
+<div class="container">
+  <div class="row product-new-edit">
+    <div class="col-3">
+      <p>会員ID</p>
+      <p>氏名</p>
+      <p>フリガナ</p>
+      <p>郵便番号</p>
+      <p>住所</p>
+      <p>電話番号</p>
+      <p>メールアドレス</p>
+      <p>会員ステータス</p>
+    </div>
 
- <table>
-  	<tr>
-  		<td>会員ID</td>
-      <td><%= @customer.id %></td>
-    </tr>
-    <tr>
-  		<td>氏名</td>
-      <td><%= @customer.last_name %></td>
-      <td><%= @customer.first_name %></td>
-    </tr>
-    <tr>
-  		<td>フリガナ</td>
-      <td><%= @customer.last_name_kana %></td>
-      <td><%= @customer.first_name_kana %></td>
-    </tr>
-    <tr>
-  		<td>郵便番号</td>
-      <td><%= @customer.postal_code %></td>
-    </tr>
-    <tr>
-  		<td>住所</td>
-      <td><%= @customer.address %></td>
-    </tr>
-    <tr>
-  		<td>電話番号</td>
-      <td><%= @customer.telephone_number %></td>
-    </tr>
-    <tr>
-  		<td>メールアドレス</td>
-      <td><%= @customer.email %></td>
-    </tr>
-    <tr>
-  		<td>会員ステータス</td>
-      <td><%= @customer.is_deleted %></td>
-    </tr>
-    <tr>
-      <td></td>
-  		<td><%= link_to '編集する', edit_customer_path(@customer) %></td>
-      <td><%= link_to '注文履歴一覧を見る', customers_path %></td>
-    </tr>
-  </table>
+    <div class="col-9">
+      <p><%= @customer.id %></p>
+      <p><%= @customer.last_name %><%= @customer.first_name %></p>
+      <p><%= @customer.last_name_kana %><%= @customer.first_name_kana %></p>
+      <p><%= @customer.postal_code %></p>
+      <p><%= @customer.address %></p>
+      <p><%= @customer.telephone_number %></p>
+      <p><%= @customer.email %></p>
+      <p><%= @customer.is_deleted %></p>
+    </div>
+  </div>
+  <div class="row product-new-edit1">
+    <div class="col-12">
+      <%= link_to '編集する', edit_customer_path(@customer),class: "btn btn-outline-success" %>
+      <%= link_to '注文履歴一覧', customers_path,class: "btn btn-outline-primary order2" %>
+    </div>
+  </div>
+</div>
