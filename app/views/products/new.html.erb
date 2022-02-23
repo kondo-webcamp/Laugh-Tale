@@ -15,7 +15,7 @@
        <p><%= f.file_field :image, placeholder: "プロフィール画像", accept: "image/*" %></p>
        <p><%= f.text_field :name %></p>
        <p><%= f.text_field :introduction %></p>
-       <p><%= f.select :genre_id, ['ケーキ', '洋菓子', 'アイス'], {include_blank: '--選択ボックス--'} %></p>
+       <p><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %></p>
        <p><%= f.text_field :price %>円</p>
        <p>
           <%#= f.radio_button :is_active, :draft %>

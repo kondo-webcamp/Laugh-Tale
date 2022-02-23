@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def new
     @item = Item.new
+    @genres = Genre.all
   end
 
   def create
@@ -31,6 +32,6 @@ class ProductsController < ApplicationController
 
   def params_path
 
-    params.require(:item).permit(:name, :introduction, :price,:image)
+    params.require(:item).permit(:name, :introduction, :price,:image,:genre_id)
   end
 end

@@ -20,6 +20,14 @@ class GenresController < ApplicationController
     redirect_to genres_path
   end
 
+  def show
+    @genres = Genre.all
+  end
+
+  def check
+    @genres = Genre.all
+  end
+
   private
   def genre_params
     params.require(:genre).permit(:name)

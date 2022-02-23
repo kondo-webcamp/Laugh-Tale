@@ -93,8 +93,8 @@ ActiveRecord::Schema.define(version: 2022_02_16_014310) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre_name"
-    t.integer "genre_status"
+    t.string "name"
+    t.integer "genrestatus"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

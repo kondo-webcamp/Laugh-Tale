@@ -1,30 +1,15 @@
-<div class="title-logo"><h3 class="title">注文履歴詳細13(管理者側)</h3></div>
-
-購入者<br>
-
-注文日<br>
-
-配送先<br>
-
-支払方法<br>
-
-注文ステータス<br>
+<div class="title-logo"><h3 class="title">注文履歴11(管理者側)</h3></div>
 
 <tr>
-  <th>商品名</th>
-  <th>単価(税込)</th>
-  <th>数量</th>
-  <th>小計</th>
-  <th>製作ステータス</th>
+  <td>購入日時</td>
+  <td>購入者</td>
+  <td>注文個数</td>
+  <td>注文ステータス</td>
 </tr>
 
-<tr>
-  <td><%= order.name %></td>
-  <td><%= order.price %></td>
-  <td><%= order.quantity %></td>
-  <td><%= (order.price * 1.1).floor * order.quantity %></td>
-
-
-</tr>
-
-<h1>注文履歴詳細17(ユーザー側)</h1>
+<% @orders.each do |order| %>
+  <%= link_to "order.created_at", order_path(order.id) %>
+  <%= order.name %>
+  <%= order.quantity %>
+  <%= order.status %>
+<% end %>

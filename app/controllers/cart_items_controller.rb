@@ -1,7 +1,4 @@
 class CartItemsController < ApplicationController
-  def new
-    @cart_item = CartItem.new
-  end
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
@@ -11,8 +8,10 @@ class CartItemsController < ApplicationController
   def index
     @cart_items = CartItem.all
   end
+  
   def show
   end
+  
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_items = CartItem.all
@@ -23,6 +22,7 @@ class CartItemsController < ApplicationController
     @cart_items = CartItem.all
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
+    @cart_items = CartItem.all
     render :index
   end
   def all_destroy
