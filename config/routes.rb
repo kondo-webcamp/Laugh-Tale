@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 }
 root to: 'homes#top'
   get 'homes/about'
-
+  get 'cart_items/ending' 
   patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 
 
