@@ -1,10 +1,31 @@
 <div class="title-logo-admin"><h3 class="title-admin">商品編集</h3></div>
-
 <%= form_with model: @product,url: product_path(@product.id), method: :patch, local: true do |f| %>
+<div class="container">
+  <div class="row product-new-edit">
+    <div class="col-3">
+      <p><%= f.label :商品画像 %></p>
+      <p><%= f.label :商品名 %></p>
+      <p><%= f.label :商品説明 %></p>
+      <p><%= f.label :ジャンル %></p>
+      <p><%= f.label :税抜価格 %></p>
+      <p><%= f.label :販売ステータス %></p>
+    </div>
 
-商品名<%= f.text_field :name %>
-商品説明<%= f.text_field :introduction %>
-税抜価格<%= f.text_field :price %>
-<%= f.submit '変更を保存' %>
+    <div class="col-9">
+       <p><%= f.file_field :image, placeholder: "プロフィール画像", accept: "image/*" %></p>
+       <p><%= f.text_field :name %></p>
+       <p><%= f.text_area :introduction %></p>
+       <p><%= f.select :genre_id, ['ケーキ', '洋菓子', 'アイス'], {include_blank: '--選択ボックス--'} %></p>
+       <p><%= f.text_field :price %>円</p>
+       <p>
+          <%#= f.radio_button :is_active, :draft %>
+          <%#= f.label :is_active_draft, '販売中' %>
+          <%#= f.radio_button :is_active, :on_sale %>
+          <%#= f.label :is_active_on_sale, '販売停止中' %>
+       </p>
+       <p><%= f.submit '変更を保存', class: "btn btn-outline-success item-show-top" %></p>
+     </div>
+  </div>
+</div>
 
 <% end %>
