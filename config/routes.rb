@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'admin_customer/index'
-  get 'admin_customer/show'
-  get 'admin_customer/edit'
   devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'

@@ -30,7 +30,7 @@
             <li><%= button_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
             <li><%= link_to '商品一覧', products_path %></li>
-            <li><%= link_to '会員一覧', customers_path %></li>
+            <li><%= link_to '会員一覧', admin_customer_index_path %></li>
             <li><%= link_to '注文履歴一覧', orders_path %></li>
             <li><%= link_to 'ジャンル一覧', genres_path %></li>
             <li><%= button_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
