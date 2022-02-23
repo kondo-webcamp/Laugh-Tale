@@ -1,10 +1,22 @@
-<div class="title-logo"><h3 class="title">商品編集5</h3></div>
-
+<div class="title-logo-admin"><h3 class="title-admin">商品編集</h3></div>
 <%= form_with model: @product,url: product_path(@product.id), method: :patch, local: true do |f| %>
+<div class="container">
+  <div class="row product-new-edit">
+    <div class="col-3">
+      <p><%= f.label :商品画像 %></p>
+      <p><%= f.label :商品名 %></p>
+      <p><%= f.label :商品説明 %></p>
+      <p><%= f.label :ジャンル %></p>
+      <p><%= f.label :税抜価格 %></p>
+      <p><%= f.label :販売ステータス %></p>
+    </div>
 
+商品画像<%= f.file_field :image, accept: "image/*" %>
 商品名<%= f.text_field :name %>
 商品説明<%= f.text_field :introduction %>
+ジャンル<%#= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
 税抜価格<%= f.text_field :price %>
+
 <%= f.submit '変更を保存' %>
 
 <% end %>
