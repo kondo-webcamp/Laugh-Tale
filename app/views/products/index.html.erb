@@ -1,4 +1,4 @@
-<div class="title-logo"><h3 class="title">商品一覧</h3></div>
+<div class="title-logo"><h3 class="title">商品一覧(全<%= @items.count %>件)</h3></div>
 <table>
   <thead>
     <tr class = "head">
@@ -12,11 +12,11 @@
   <tbody>
     <% @items.each do |item|%>
       <tr class = "body">
-        <td><%= image_tag item.image, size: "200x200" %></td>
+        
         <td><%= item.id %></td>
         <td><%= link_to item.name, product_path(item.id) %></td>
         <td><%= item.price %></td>
-        <td><%= item.genre_id %></td>
+        <td><%= item.genre.name %></td>
         <td><%#= item.is_active %></td>
       </tr>
     <% end %>

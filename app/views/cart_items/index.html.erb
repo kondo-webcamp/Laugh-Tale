@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row cart_item-button">
-    <%= link_to "カートを空にする", cart_items_path, method: :delete ,class: "btn btn-outline-danger" %>
+    <%= button_to "カートを空にする", cart_items_path, method: :delete ,class: "btn btn-outline-danger" %>
   </div>
 
   <div class="row">
@@ -35,7 +35,7 @@
             </td>
             <td class="td"><%= (cart_item.item.price * 1.1).floor * cart_item.quantity %></td>
             <% @total +=  (cart_item.item.price * 1.1).floor * cart_item.quantity %>
-            <td class="td"><%= link_to "削除する",cart_item_path(cart_item.id), method: :delete,local:true, "data-confirm" => "削除しますか？",class: "btn btn-outline-danger" %></td>
+            <td class="td"><%= button_to "削除する",cart_item_path(cart_item.id), method: :delete,local:true,class: "btn btn-outline-danger" %></td>
           </tr>
         <% end %>
       </tbody>

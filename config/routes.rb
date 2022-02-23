@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   get 'admin_customer/index'
   get 'admin_customer/show'
   get 'admin_customer/edit'
@@ -21,7 +19,7 @@ root to: 'homes#top'
 
 
   get 'orders/:id/check' =>'orders#check',as: 'check'
-
+  get 'genres/check' =>'genres#check',as: 'genre_check'
 resources :genres
 resources :addresses
 resources :orders
