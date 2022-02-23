@@ -1,4 +1,4 @@
-<div class="title-logo"><h3 class="title">商品新規登録</h3></div>
+<div class="title-logo-admin"><h3 class="title-admin">商品新規登録</h3></div>
 <%= form_with model: @item,url: products_path,method: :post, local: true do |f| %>
 <div class="container">
   <div class="row">
@@ -23,11 +23,8 @@
           <%#= f.radio_button :is_active, :on_sale %>
           <%#= f.label :is_active_on_sale, '販売停止中' %>
        </p>
+       <p><%= f.submit '新規登録', class: "btn btn-outline-dark" %></p>
      </div>
-  </div>
-
-  <div class="row">
-    <%= f.submit '新規登録', class: "btn btn-outline-dark" %>
   </div>
 </div>
 <% end %>
