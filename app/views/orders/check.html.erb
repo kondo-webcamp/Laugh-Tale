@@ -1,43 +1,65 @@
-<h1>注文情報確認</h1>
 
-<%= @order.postal_code %>
-<%= @order.address %>
 
-支払い方法<%= @order.payment_method %>
 
-  <thead>
-    <tr class = "information">
-      <th>商品名</th>
-      <th>単価(税込)</th>
-      <th>数量</th>
-      <th>小計</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @total = 800 %>
-    <% @order_details.each do |order_detail| %>
-      <tr class = "body">
-        <td>
-          <%#= order_detail.item.image %>
-          <%= order_detail.item.name %>
+<%@total = 0 %>
 
-        </td>
-        <td><%= (order_detail.item.price * 1.1).floor %></td>
-        <td>
-        <%= order_detail.quantity %>
-        </td>
-        <td><%= (order_detail.item.price * 1.1).floor * order_detail.quantity %></td>
-        <%=@total +=  (order_detail.item.price * 1.1).floor * order_detail.quantity %>
-       </tr>
-    <% end %>
-  </tbody>
-</table>
-<<<<<<< HEAD
+<div class="order_detail-button0"><h5 class="title">注文情報確認</h5></div>
 
-<h1>合計金額:<%= @total %></h1>
-<%= link_to "情報入力に進む", %>
-=======
-<h1>合計金額:<%= @total %></h1>
-<%= link_to "注文を確定する", cart_items_ending_path %>
->>>>>>> 77714779fcb95f7861781b613a2c1435ed36fc5c
+<div class="container">
+  <div class="row order_detail-button">
+   
+  </div>
+
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr class="tr">
+          <th class="th">商品名</th>
+          <th class="th">単価(税込)</th>
+          <th class="th">数量</th>
+          <th class="th">小計</th>
+          <th class="th">送料</th>
+          <th class="th"><%= 800 %></th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @totals = 0 %>
+        <% @order_details.each do |order_detail| %>
+          <tr class="tr">
+            <td class="td"><!--画像と商品名-->
+              <%#= order_detail.item.image %>
+              <%= order_detail.item.name %>
+            </td>
+            <td class="td"><!--金額-->
+              <%= (order_detail.item.price * 1.1).floor %>
+            </td>
+            <td class="td">
+              <%= @totals += order_detail.quantity %>
+            </td>
+            <td class="td"><%= (order_detail.item.price * 1.1).floor * order_detail.quantity %></td>
+            <% @total +=  (order_detail.item.price * 1.1).floor * order_detail.quantity %>
+            
+          </tr>
+        <% end %>
+      </tbody>
+     </table>
+   </div>
+
+   <div class="row ">
+     <%= link_to "注文を確定する", cart_items_ending_path %>
+     <h4 class="order_detail-total">商品合計:<%= @total %></h4>
+     <h4 class="order_detail-total">合計:<%= @total + 800 %></h4>
+   </div>
+   <div class="row">
+      <%= @order.postal_code %>
+      <%= @order.address %>
+      <%= @order.name %>
+   </div>
+     <div class="row">
+     支払い方法<%= @order.payment_method %>
+     </div>
+ </div>
+
+
+
+

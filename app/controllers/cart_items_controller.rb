@@ -19,7 +19,7 @@ class CartItemsController < ApplicationController
     render :index
   end
   def destroy
-    @cart_items = CartItem.all
+    
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
     @cart_items = CartItem.all
