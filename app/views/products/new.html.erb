@@ -18,10 +18,10 @@
        <p><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %></p>
        <p><%= f.text_field :price %>円</p>
        <p>
-          <%#= f.radio_button :is_active, :draft %>
-          <%#= f.label :is_active_draft, '販売中' %>
-          <%#= f.radio_button :is_active, :on_sale %>
-          <%#= f.label :is_active_on_sale, '販売停止中' %>
+          <%= f.radio_button :is_active, :true %>
+          <%= f.label :is_active, "販売中" %>
+          <%= f.radio_button :is_active, :false %>
+          <%= f.label :is_active, "販売停止中" %>
        </p>
        <p><%= f.submit '新規登録', class: "btn btn-outline-dark item-show-top" %></p>
      </div>
