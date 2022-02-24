@@ -1,14 +1,13 @@
 class AddressesController < ApplicationController
   def index
      @address = Address.new
-     @addresses = Address.all
+     @addresses = current_customer.addresses
   end
-
   def create
     @address = Address.new(params_path)
     @address.customer_id = current_customer.id
     @address.save
-    @addresses = Address.all
+    
     render :index
   end
 

@@ -46,8 +46,8 @@
     <th></th>
   </tr>
   <tr>
-    <th><%= current_customer.postal_code %></th>
-    <th><%= current_customer.address %></th>
+    <th><%#= current_customer.postal_code %></th>
+    <th><%#= current_customer.address %></th>
     <th><%#= current_customer.(last_name + first_name) %> </th>
     <th><%#= link_to "編集する", , class: "btn btn-success btn-sm" %></th>
     <th><%#= link_to "削除する", ,method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %></th>
@@ -57,8 +57,10 @@
     <td><%= address.postal_code %></td>
     <td><%= address.address %></td>
     <td><%= address.name %></td>
+
     <td><%= link_to "編集する", edit_address_path(address.id), class: "btn btn-outline-success btn-sm" %></td>
-    <td><%= link_to "削除する", address_path(address.id),method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger btn-sm" %></td>
+    <td><%= button_to "削除する", address_path(address.id),method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger btn-sm" %></td>
+
   </tr>
   <% end %>
 </table>

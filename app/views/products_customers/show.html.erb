@@ -1,3 +1,5 @@
+<h1>ユーザー側の商品詳細</h1>
+
 <div class="container">
   <div class="row item-show-top">
 
@@ -16,7 +18,7 @@
     <div class="col-6">
       <div class="item-show">
          <div class="row">
-           <%= image_tag @item.get_image, size: "200x200" %>
+           <%#= image_tag @item.get_image, size: "200x200" %>
          </div>
         <div class="row">
           <h1><strong><%= @item.name %></strong></h1>
@@ -34,7 +36,7 @@
           <%= form_with model:@cart_item, url:cart_items_path, method: :post,local:true do |f| %>
           <%= f.hidden_field :item_id, value: @item.id %>
           <%= f.select :quantity, *[1..10] %>
-          <%= link_to "編集する", edit_product_path(@item.id) %>
+          <div class="item-show-top3"><%= f.submit 'カートに入れる', class: "btn btn-outline-dark" %></div>
           <% end %>
         </div>
       </div>
