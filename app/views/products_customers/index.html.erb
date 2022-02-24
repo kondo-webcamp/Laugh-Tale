@@ -1,28 +1,13 @@
 <div class="title-logo"><h3 class="title">商品一覧</h3></div>
-<table>
-  <thead>
-    <tr class = "head">
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item|%>
-      <tr class = "body">
-        <td><%= image_tag item.get_image, size: "200x200" %></td>
-        <td><%= item.id %></td>
-        <td><%= link_to item.name, products_customer_path(item.id) %></td>
-        <td><%= item.price %></td>
-        <td><%#= item.genre.name %></td>
-        <td><%#= item.is_active %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<h5>ジャンル検索</h5>
-<% @genres.each do |genre| %>
-    <%= link_to genre.name, genre_path(genre.id) %>
-<% end %>
+
+
+    <div class="item-index0">
+      <% @items.each do |item|%>
+      <div class="item-index">
+        <p><%= image_tag item.get_image, size: "150x150" %></p>
+        <p><%= link_to item.name, product_path(item.id) %></p>
+        <p>￥<%= item.price %></p>
+      </div>
+      <% end %>
+    </div>
+    

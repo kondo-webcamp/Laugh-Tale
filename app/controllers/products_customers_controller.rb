@@ -1,6 +1,6 @@
 class ProductsCustomersController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.where(is_active: true)
     @genres = Genre.all
   end
   

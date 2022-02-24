@@ -1,19 +1,39 @@
 <div class="title-logo"><h3 class="title">配送先編集</h3></div>
 
 <%= form_with model: @address, method: :patch, local: true do |f| %>
-<table>
-  <tr>
-    <td><%= f.label :'郵便番号(ハイフンなし)' %></td>
-    <td><%= f.text_field :postal_code %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :'住所' %></td>
-    <td><%= f.text_field :address %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :'宛名' %></td>
-    <td><%= f.text_field :name %></td>
-  </tr>
-</table>
-<%= f.submit '変更内容を保存する', class: "btn btn-success" %>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :'郵便番号(ハイフンなし)' %>
+    </div>
+
+    <div class="col-9">
+      <%= f.text_field :postal_code %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :'住所' %>
+    </div>
+
+    <div class="col-9">
+      <%= f.text_field :address %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :'宛名' %>
+    </div>
+
+    <div class="col-5">
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="col-4">
+      <%= f.submit '変更内容を保存する',class: "btn btn-outline-success" %>
+    </div>
+  </div>
+</div>
 <% end %>

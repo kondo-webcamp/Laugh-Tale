@@ -26,13 +26,14 @@ class ProductsController < ApplicationController
   def update
     @product = Item.find(params[:id])
     @product.update(params_path)
-    redirect_to products_path(@product.id)
+    flash[:notice] = "編集できました"
+    redirect_to products_path(@product)
   end
 
   private
 
   def params_path
 
-    params.require(:item).permit(:name, :introduction, :price,:image,:genre_id)
+    params.require(:item).permit(:name, :introduction, :price, :image, :genre_id, :is_active)
   end
 end
