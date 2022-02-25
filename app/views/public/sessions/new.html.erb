@@ -7,11 +7,11 @@
       <table>
         <tr>
           <td class="customer-label"><%= f.label :'メールアドレス' %></td>
-          <td class="customer-field"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          <td class="customer-field"><%= f.email_field :email, placeholder: "sample@sample.com", autofocus: true, autocomplete: "email" %></td>
         </tr>
         <tr>
           <td class="customer-label"><%= f.label :'パスワード' %>
-          <td class="customer-field"><%= f.password_field :password, autocomplete: "current-password" %></td>
+          <td class="customer-field"><%= f.password_field :password, placeholder: "パスワード入力",autocomplete: "current-password" %></td>
           <td class="customer-label"><%= f.submit "ログイン", class: "btn btn-outline-dark" %></td>
         </tr>
       </table>
