@@ -51,14 +51,10 @@
             <td class="td"><%= (order_detail.item.price * 1.1).floor * order_detail.quantity %></td>
             <% @total +=  (order_detail.item.price * 1.1).floor * order_detail.quantity %>
 
-
-                  <%= form_with model: order_detail, url: order_detail_path(order_detail.id),method: :patch,local: true do |f| %>
-                      <td><%=f.select :making_status, OrderDetail.making_statuses.keys.map{ |k| [I18n.t("enums.order_detail.making_status.#{k}"),k]} %></td>
-                      <td><%=f.submit "更新", class: 'btn btn-sm btn-success' %></td>
-                  <% end %>
-            <% end %>
-           <td>
-
+                 <td><%= form_with model: order_detail, url: order_detail_path(order_detail.id),method: :patch,local: true do |f| %>
+                      <%=f.select :making_status, OrderDetail.making_statuses.keys.map{ |k| [I18n.t("enums.order_detail.making_status.#{k}"),k]} %>
+                      <%=f.submit "更新", class: 'btn btn-sm btn-success' %>
+                  <% end %></td>
 
           </tr>
           <% end %>
