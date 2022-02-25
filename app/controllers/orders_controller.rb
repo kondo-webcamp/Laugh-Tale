@@ -47,9 +47,14 @@ class OrdersController < ApplicationController
   end
      def update
        @order = Order.find(params[:id])
-       @order.update(order_params)
        @order_details =@order.order_details
-       redirect_to order_path
+       if @order.status == "check_pay"
+         @order_details.each do |order_detail|
+        order_detail.making_status = "waiting_production"
+        order_detail.save
+         end
+       end
+    redirect_to request.referer
      end
 
       def check
