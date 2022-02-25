@@ -1,26 +1,59 @@
 <div class="title-logo-admin"><h3 class="title-admin">商品編集</h3></div>
 <%= form_with model: @product,url: product_path(@product.id), method: :patch, local: true do |f| %>
 <div class="container">
-  <div class="row product-new-edit">
-    <div class="col-3">
-      <p><%= f.label :商品画像 %></p>
-      <p><%= f.label :商品名 %></p>
-      <p><%= f.label :商品説明 %></p>
-      <p><%= f.label :ジャンル %></p>
-      <p><%= f.label :税抜価格 %></p>
-      <p><%= f.label :販売ステータス %></p>
+  <div class="row">
+    <div class="col-5">
+      <p class="d-flex justify-content-end"><%= f.label :商品画像 %></p>
     </div>
-
-商品画像<%= f.file_field :image, accept: "image/*" %>
-商品名<%= f.text_field :name %>
-商品説明<%= f.text_field :introduction %>
-ジャンル<%#= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
-税抜価格<%= f.text_field :price %>
-<%= f.radio_button :is_active, :true %>
-<%= f.label :is_active, "販売中" %>
-<%= f.radio_button :is_active, :false %>
-<%= f.label :is_active, "販売停止中" %>
-
-<%= f.submit '変更を保存' %>
-
+    <div class="col-7">
+      <p><%= f.file_field :image, accept: "image/*" %></p>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-5">
+        <p class="d-flex justify-content-end"><%= f.label :商品名 %></p>
+      </div>
+      <div class="col-7">
+        <p ><%= f.text_field :name %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5">
+        <p class="d-flex justify-content-end"><%= f.label :商品説明 %></p>
+      </div>
+      <div class="col-7">
+        <p><%= f.text_field :introduction %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5">
+        <p class="d-flex justify-content-end"><%= f.label :ジャンル %></p>
+      </div>
+      <div class="col-7">
+        <p><%#= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5">
+        <p class="d-flex justify-content-end"><%= f.label :税抜価格 %></p>
+      </div>
+      <div class="col-7">
+        <p><%= f.text_field :price %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5">
+        <p class="d-flex justify-content-end"><%= f.label :販売ステータス %></p>
+      </div>
+      <div class="col-7">
+        <p>
+          <%= f.radio_button :is_active, :true %>
+          <%= f.label :is_active, "販売中" %>
+          <%= f.radio_button :is_active, :false %>
+          <%= f.label :is_active, "販売停止中" %>
+        </p>
+      </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center"><%= f.submit '変更を保存', class: "btn btn-outline-success" %></div>
 <% end %>
