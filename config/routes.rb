@@ -11,10 +11,6 @@ root to: 'homes#top'
   get 'cart_items/ending' 
   patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
 
-
-
-
-
   get 'orders/:id/check' =>'orders#check',as: 'check'
   get 'genres/check' =>'genres#check',as: 'genre_check'
 resources :genres

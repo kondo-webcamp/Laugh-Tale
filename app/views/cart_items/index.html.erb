@@ -21,7 +21,7 @@
         <% @cart_items.each do |cart_item| %>
           <tr class="tr">
             <td class="td"><!--画像と商品名-->
-              <%#= cart_item.item.image %>
+              <%= image_tag cart_item.item.get_image, size: "50x50" %>
               <%= cart_item.item.name %>
             </td>
             <td class="td"><!--金額-->
