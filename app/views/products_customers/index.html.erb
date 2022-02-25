@@ -5,7 +5,7 @@
       <% @items.each do |item|%>
       <div class="item-index">
         <p><%= image_tag item.get_image, size: "150x150" %></p>
-        <p><%= link_to item.name, product_path(item.id) %></p>
+        <p><%= link_to item.name, products_customer_path(item.id) %></p>
         <p>￥<%= item.price %></p>
       </div>
       <% end %>
