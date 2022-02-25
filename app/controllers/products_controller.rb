@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Item.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
