@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
        @order = Order.find(params[:id])
        @order.update(order_params)
        @order_details =@order.order_details
-       render :show
+       redirect_to order_path
      end
 
       def check
