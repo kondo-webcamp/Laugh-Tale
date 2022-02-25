@@ -3,7 +3,7 @@
     <%= form_with model:@genre ,url:genres_path ,method: :post, local:true do |f| %>
     <%= f.label :ジャンル名 %>
     <%= f.text_field :name %>
-    <%= f.submit '新規登録', class: "btn btn-outline-dark genre-button" %>
+    <%= f.submit '新規登録', class: "btn btn-outline-success genre-button" %>
     <% end %>
   </div>
 
