@@ -61,23 +61,9 @@
       <p><%= f.submit'編集内容を保存', class: "btn btn-outline-success customer-edit" %></p>
     </div>
     <div class="col-6">
-      <button class="customer-modal0 btn btn-outline-danger">退会する</button>
+      <div class="customer-modal-open"><%= link_to '退会する', new_customer_path, class: "btn btn-outline-danger" %></div>
     </div>
   </div>
 <% end %>
 </div>
 
-       <div class="customer-modal">
-         <div class="customer-modal1">
-            <h4>本当に退会しますか？</h4>
-            <p>
-              退会すると会員登録情報や<br/>
-              これまでの購入履歴が閲覧できなくなります。<br/>
-              退会する場合は、「退会する」をクリックしてください。
-            </p>
-            <div class="modal-button">
-              <button class="customer-modal2 btn btn-primary">退会しない</button>
-              <div class="modal-button1"><%= button_to '退会する', withdrawal_path, method: :patch,class: 'btn btn-danger', data: { confilm: '本当に退会しますか？' } %></div>
-            </div>
-         </div>
-       </div>
