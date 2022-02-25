@@ -1,13 +1,15 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    @orders = Order.all.order(created_at: :desc)
     @order_details = OrderDetail.all
   end
 
   def show
-    @order = Order.find(params[:id])
-    @order_details = @order.order_details
+
+    @order =Order.find(params[:id])
+    @order_details =@order.order_details
+
   end
 
   def new
@@ -43,12 +45,16 @@ class OrdersController < ApplicationController
       render :new
     end
   end
-
+     def update
+       @order = Order.find(params[:id])
+       @order.update(order_params)
+       @order_details =@order.order_details
+       render :show
+     end
 
       def check
 
         @order = Order.find(params[:id])
-
         @order_details = @order.order_details
 
       end
