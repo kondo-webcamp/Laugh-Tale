@@ -1,14 +1,6 @@
 <div class="title-logo"><h3 class="title">注文履歴詳細</h3></div>
-
-
-
-
 </tr>
-
 <%@total = 0 %>
-
-
-
 <div class="container">
   <div class="row justify-content-start">
     <div class="col-3">
@@ -17,24 +9,18 @@
         <strong><p class="text-center ">配送先</p></strong>
         <strong><p class="text-center ">支払い方法</p></strong>
         <strong><p class="text-center ">注文ステータス</p></strong>
-
     </div>
-
-
     <div class= "col-5">
-      <h6 class="m-3 border"><%=@order.name%></h6>
+      <h6 class="m-3"><%=@order.name%></h6>
       <h6 class="m-3 "><%=@order.created_at%></h6>
       <h6 class="m-3"><%= @order.address_displays %></h6>
       <h6 class="m-4"><%= @order.payment_method %></h6>
       <%= form_with model: @order,url: order_path,method: :patch,local: true do |f| %>
-             <%= f.select :status,options_for_select([['入金待ち', '0'], ['入金確認', '1'], ['制作中', '2'], ['発送準備中', '3'],['発送中','4']])%>
-             <%= f.submit '更新' %>
+             <%= f.select :status,options_for_select([['入金待ち', 0], ['入金確認', 1], ['制作中', 2], ['発送準備中', 3],['発送中',4]])%>
+             <%= f.submit '更新', class: "btn btn-outline-success" %>
       <% end %>
-
     </div>
   </div>
-
-
   <div class="row">
     <table class="table">
       <thead>
@@ -44,7 +30,6 @@
           <th class="th">数量</th>
           <th class="th">小計</th>
           <th class="th">注文ステータス</th>
-
         </tr>
       </thead>
       <tbody>
@@ -63,36 +48,17 @@
             </td>
             <td class="td"><%= (order_detail.item.price * 1.1).floor * order_detail.quantity %></td>
             <% @total +=  (order_detail.item.price * 1.1).floor * order_detail.quantity %>
-
             <% end %>
            <td>
              <%=  form_with model: @order,url: order_path,method: :patch,local: true do |f| %>
-             <%= f.select :status, options_for_select([['入金待ち', '0'], ['入金確認', '1'], ['制作中', '2'], ['発送準備中', '3'],['発送中','4']])%>
-
-             <%= f.submit '更新',class: "btn btn-outline-dark"%>
+             <%= f.select :status, options_for_select([['入金待ち', 0], ['入金確認', 1], ['制作中', 2], ['発送準備中', 3],['発送中',4]])%>
+             <%= f.submit '更新', class: "btn btn-outline-success"%>
              <% end %>
           </tr>
-
-
       </tbody>
      </table>
    </div>
-
    <div class="row border-bottom justify-content-end">
-
-
        <h6 class="m-1">商品合計：<%= @total %></h6><h6 class="m-1">送料：800</h6><h4 class="m-1 me-5"><strong>合計：<%= @total + 800 %></strong></h4>
-
-
-
    </div>
-
-
  </div>
-
-<p class="th">商品合計</p>
-<p class="th"><%= @total %></p>
-<p class="th">送料</p>
-<p class="th"><%= 800 %></p>
-<p class="th">請求金額合計</p>
-<p class="th"><%= @total + 800 %></p>

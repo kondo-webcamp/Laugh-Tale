@@ -29,7 +29,7 @@
             <li><%= link_to 'カート', cart_items_path, class:"btn btn-light m-2" %></li>
             <li><%= button_to 'ログアウト', destroy_customer_session_path, method: :delete, class:"btn btn-light m-2" %></li>
           <% elsif admin_signed_in? %>
-            <li><%= link_to '商品一覧', products_path , class:"btn btn-light"%></li>
+            <li><%= link_to '商品一覧', products_path , class:"btn btn-light m-2"%></li>
             <li><%= link_to '会員一覧', admin_customer_index_path, class:"btn btn-light m-2" %></li>
             <li><%= link_to '注文履歴一覧', orders_path , class:"btn btn-light m-2"%></li>
             <li><%= link_to 'ジャンル一覧', genres_path, class:"btn btn-light m-2" %></li>
