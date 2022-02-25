@@ -30,7 +30,7 @@
         <p class="d-flex justify-content-end"><%= f.label :ジャンル %></p>
       </div>
       <div class="col-7">
-        <p><%#= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %></p>
+        <p><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %></p>
       </div>
     </div>
     <div class="row">
