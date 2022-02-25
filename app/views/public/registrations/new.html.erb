@@ -21,14 +21,14 @@
      </div>
 
      <div class="col col-lg-3">
-        <p><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", required: true %></p>
-        <p><%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %></p>
-        <p><%= f.email_field :email, autocomplete: "email" %></p>
-        <p><%= f.text_field :postal_code, autocomplete: "postal_code" %></p>
-        <p><%= f.text_field :address, autocomplete: "address" %></p>
-        <p><%= f.text_field :telephone_number, autocomplete: "telephone_number" %></p>
-        <p><%= f.password_field :password, autocomplete: "new-password" %></p>
-        <p><%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
+        <p><%= f.text_field :last_name, autofocus: true, placeholder: "山田", autocomplete: "last_name", required: true %></p>
+        <p><%= f.text_field :last_name_kana,  placeholder: "ヤマダ", autocomplete: "last_name_kana" %></p>
+        <p><%= f.email_field :email, placeholder: "sample@sample.com", autocomplete: "email" %></p>
+        <p><%= f.text_field :postal_code, placeholder: "〒", autocomplete: "postal_code" %></p>
+        <p><%= f.text_field :address, placeholder: "住所", autocomplete: "address" %></p>
+        <p><%= f.text_field :telephone_number, placeholder: "0120828828", autocomplete: "telephone_number" %></p>
+        <p><%= f.password_field :password, placeholder: "パスワード入力(6文字以上)", autocomplete: "new-password" %></p>
+        <p><%= f.password_field :password_confirmation, placeholder: "パスワード確認", autocomplete: "new-password" %></p>
      </div>
 
 
@@ -38,8 +38,8 @@
      </div>
 
      <div class="col col-lg-2">
-        <p><%= f.text_field :first_name,  autocomplete: "first_name", required: true %></p>
-        <p><%= f.text_field :first_name_kana,  autocomplete: "first_name_kana" %></p>
+        <p><%= f.text_field :first_name, placeholder: "太郎", autocomplete: "first_name", required: true %></p>
+        <p><%= f.text_field :first_name_kana, placeholder: "タロウ", autocomplete: "first_name_kana" %></p>
         <p class="title-button"><%= f.submit "新規登録", class: "btn btn-outline-dark" %></p>
      </div>
    </div>
