@@ -16,7 +16,7 @@
       <h6 class="m-3"><%= @order.address_displays %></h6>
       <h6 class="m-4"><%= @order.payment_method %></h6>
       <%= form_with model: @order,url: order_path,method: :patch,local: true do |f| %>
-             <%= f.select :status,options_for_select([['入金待ち', 0], ['入金確認', 1], ['制作中', 2], ['発送準備中', 3],['発送中',4]])%>
+             <%= f.select :status, Order.statuses.keys, class: "order_status" %>
              <%= f.submit '更新', class: "btn btn-outline-success" %>
       <% end %>
     </div>
@@ -51,7 +51,7 @@
             <% end %>
            <td>
              <%=  form_with model: @order,url: order_path,method: :patch,local: true do |f| %>
-             <%= f.select :status, options_for_select([['入金待ち', 0], ['入金確認', 1], ['制作中', 2], ['発送準備中', 3],['発送中',4]])%>
+             <%= f.select :status, Order.statuses.keys, class: "status" %>
              <%= f.submit '更新', class: "btn btn-outline-success"%>
              <% end %>
           </tr>

@@ -9,7 +9,7 @@
      <% @orders.each do |order| %>
      <div class="row justify-content-md-center">
            <% total = 0 %>
-           <div class="col col-lg-3 border-top   border-3 text-center  bg-light text-dark"><p class="text-decoration-underline "><%= link_to order.created_at,order_path(order.id) %></p></div>
+           <div class="col col-lg-3 border-top   border-3 text-center  bg-light text-dark"><p class="text-decoration-underline "><%= link_to order.created_at.strftime('%Y/%m/%d'),order_path(order.id) %></p></div>
            <div class="col col-lg-2 border-top  border-3 text-center  bg-light text-dark"><p><%= order.name %></p></div>
             <% order.order_details.each do |order_detail| %>
             <% total = total + order_detail.quantity %>
