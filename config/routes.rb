@@ -13,6 +13,7 @@ root to: 'homes#top'
 
   get 'orders/:id/check' =>'orders#check',as: 'check'
   get 'genres/check' =>'genres#check',as: 'genre_check'
+resources :order_details 
 resources :genres
 resources :addresses
 resources :orders

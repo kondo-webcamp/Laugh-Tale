@@ -15,9 +15,9 @@
       <h6 class="m-3 "><%=@order.created_at%></h6>
       <h6 class="m-3"><%= @order.address_displays %></h6>
       <h6 class="m-4"><%= @order.payment_method %></h6>
-      <%= form_with model: @order,url: order_path,method: :patch,local: true do |f| %>
-             <%= f.select :status, Order.statuses.keys, class: "order_status" %>
-             <%= f.submit '更新', class: "btn btn-outline-success" %>
+      <%= form_with model: @order, url: order_path(@order) do |f| %>
+        <%= f.select :status, Order.statuses.keys.map{ |k| [I18n.t("enums.order.status.#{k}"),k]} %>
+        <%= f.submit '更新', class: 'btn btn-sm btn-success ms-2' %>
       <% end %>
     </div>
   </div>
@@ -48,12 +48,14 @@
             </td>
             <td class="td"><%= (order_detail.item.price * 1.1).floor * order_detail.quantity %></td>
             <% @total +=  (order_detail.item.price * 1.1).floor * order_detail.quantity %>
+
+                  <%= form_with model: order_detail, url: order_detail_path(order_detail.id),method: :patch,local: true do |f| %>
+                      <td><%=f.select :making_status, OrderDetail.making_statuses.keys.map{ |k| [I18n.t("enums.order_detail.making_status.#{k}"),k]} %></td>
+                      <td><%=f.submit "更新", class: 'btn btn-sm btn-success' %></td>
+                  <% end %>
             <% end %>
            <td>
-             <%=  form_with model: @order,url: order_path,method: :patch,local: true do |f| %>
-             <%= f.select :status, Order.statuses.keys, class: "status" %>
-             <%= f.submit '更新', class: "btn btn-outline-success"%>
-             <% end %>
+
           </tr>
       </tbody>
      </table>
