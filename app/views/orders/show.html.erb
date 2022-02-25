@@ -12,12 +12,15 @@
     </div>
     <div class= "col-5">
       <h6 class="m-3"><%=@order.name%></h6>
-      <h6 class="m-3 "><%=@order.created_at%></h6>
+      <h6 class="m-3 "><%= @order.created_at.strftime('%Y/%m/%d') %></h6>
       <h6 class="m-3"><%= @order.address_displays %></h6>
       <h6 class="m-4"><%= @order.payment_method %></h6>
-      <%= form_with model: @order,url: order_path,method: :patch,local: true do |f| %>
-             <%= f.select :status, Order.statuses.keys, class: "order_status" %>
-             <%= f.submit '更新', class: "btn btn-outline-success" %>
+      <%= form_with model: @order, url: order_path, local: true do |f| %>
+        <td>
+          <%= f.select :status, [['入金待ち', 'wait'], ['入金確認', 'confirm'], ['製作中', 'crafting'], ['発送準備中', 'preparation'], ['発送済み', 'complete']], { include_blank: false, selected: @order.status}, class: 'form-control-sm' %>
+          <%= f.submit "更新", class: 'btn btn-success' %>
+        </td>
+
       <% end %>
     </div>
   </div>
@@ -29,7 +32,7 @@
           <th class="th">単価(税込)</th>
           <th class="th">数量</th>
           <th class="th">小計</th>
-          <th class="th">注文ステータス</th>
+          <th class="th">制作ステータス</th>
         </tr>
       </thead>
       <tbody>
@@ -48,17 +51,20 @@
             </td>
             <td class="td"><%= (order_detail.item.price * 1.1).floor * order_detail.quantity %></td>
             <% @total +=  (order_detail.item.price * 1.1).floor * order_detail.quantity %>
-            <% end %>
+
            <td>
-             <%=  form_with model: @order,url: order_path,method: :patch,local: true do |f| %>
-             <%= f.select :status, Order.statuses.keys, class: "status" %>
-             <%= f.submit '更新', class: "btn btn-outline-success"%>
-             <% end %>
+            <%= form_with model: order_detail, url: order_path(@order.id), local: true do |f| %>
+              <%= f.select :making_status, [['着手不可', 'no'], ['製作待ち', 'craft_wait'],['製作中', 'in_crafting'],['製作完了', 'comp']], { include_blank: false, selected: @order.making_status}, class: 'form-control-sm' %>
+              <%= f.submit "更新", class: 'btn btn-success' %>
+            <% end %>
+           </td>
           </tr>
+          <% end %>
       </tbody>
      </table>
    </div>
    <div class="row border-bottom justify-content-end">
        <h6 class="m-1">商品合計：<%= @total %></h6><h6 class="m-1">送料：800</h6><h4 class="m-1 me-5"><strong>合計：<%= @total + 800 %></strong></h4>
    </div>
+ </div>
  </div>
